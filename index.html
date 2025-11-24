@@ -240,12 +240,9 @@
             if (isPlaying) {
                 music.pause();
                 icon.innerText = "🔇"; // Ikon mati
-                stopScroll(); // Tambahan: Scroll berhenti saat musik dipause
             } else {
                 music.play();
                 icon.innerText = "🎵"; // Ikon nyala
-                userInterrupted = false; // PENTING: RESET FLAG INTERUPSI
-                startAutoScroll(); // Mulai scroll
             }
             isPlaying = !isPlaying;
         }
@@ -278,6 +275,9 @@
         window.addEventListener('touchstart', stopScroll);
         window.addEventListener('wheel', stopScroll);
         // window.addEventListener('click', stopScroll);
+
+        // Panggil scroll segera setelah kode selesai dimuat
+        startAutoScroll();
     </script>
 
 </body>
