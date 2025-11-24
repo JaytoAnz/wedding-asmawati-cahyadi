@@ -219,5 +219,64 @@
 
         document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>
+
+        <div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
+        <button onclick="toggleMusic()" style="background: #D4AF37; border: 2px solid white; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+            <span id="music-icon" style="font-size: 24px;">🔇</span>
+        </button>
+    </div>
+
+    <audio id="wedding-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_5542d3dc9f.mp3?filename=wedding-piano-124474.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // --- LOGIKA MUSIK ---
+        const music = document.getElementById('wedding-music');
+        const icon = document.getElementById('music-icon');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                icon.innerText = "🔇"; // Ikon mati
+            } else {
+                music.play();
+                icon.innerText = "🎵"; // Ikon nyala
+                startAutoScroll(); // Mulai scroll saat musik dinyalakan
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // --- LOGIKA AUTO SCROLL PELAN ---
+        let scrollInterval;
+        let userInterrupted = false;
+
+        function startAutoScroll() {
+            // Cek jika user sudah menyentuh layar, jangan scroll lagi
+            if (userInterrupted) return;
+
+            // Kecepatan Scroll (Semakin besar angka 50, semakin pelan)
+            scrollInterval = setInterval(() => {
+                window.scrollBy(0, 1); // Turun 1 pixel
+                
+                // Stop jika sudah sampai paling bawah
+                if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                    stopScroll();
+                }
+            }, 50); 
+        }
+
+        function stopScroll() {
+            clearInterval(scrollInterval);
+            userInterrupted = true; // Tandai bahwa user sudah interaksi
+        }
+
+        // Matikan auto-scroll jika user menyentuh layar (biar bisa klik RSVP/Peta)
+        window.addEventListener('touchstart', stopScroll);
+        window.addEventListener('wheel', stopScroll);
+        window.addEventListener('click', stopScroll);
+    </script>
+
 </body>
 </html>
