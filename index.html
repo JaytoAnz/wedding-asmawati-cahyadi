@@ -11,6 +11,7 @@
     <meta property="og:image" content="https://jaytoanz.github.io/wedding-asmawati-cahyadi/images/img_couple_1.jpeg">
     
     <meta property="og:url" content="https://jaytoanz.github.io/wedding-asmawati-cahyadi/?v=1">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -207,7 +208,7 @@
         <p>04 . 12 . 2025</p>
     </header>
 
-    <section class="container fade-in" id="section-doa">
+    <section class="container" id="section-doa" data-aos="fade-up">
         <img src="https://www.freepnglogos.com/uploads/bismillah-png/the-best-bismillah-vector-images-download-from-17.png" alt="Bismillah" style="width: 150px;">
         <p style="margin-top: 20px; font-style: italic;">
             "Ya Allah, dengan segala kesucian hati, kami bersujud memohon Ridho-Mu, untuk menuju sunnah Rasul-Mu, membentuk keluarga yang Sakinah, Mawaddah, Warahmah."
@@ -215,7 +216,7 @@
     </section>
 
     <section class="container couple-section fade-in" id="section-mempelai">
-        <div class="couple-card">
+        <div class="couple-card" data-aos="fade-left">
             <img src="images/img_couple_1.jpeg" alt="Asmawati">
             <h2 class="couple-name">Asmawati Saleha</h2>
             <p class="parents">Putri Bungsu dari Bpk. Muhamad Soleh (Alm) & Ibu Jariah</p>
@@ -223,7 +224,7 @@
 
         <h2 style="font-size: 2rem;">&</h2>
 
-        <div class="couple-card">
+        <div class="couple-card" data-aos="fade-right">
             <img src="images/img_couple_1.jpeg" alt="Cahyadi">
             <h2 class="couple-name">Cahyadi Muhamad Noor</h2>
             <p class="parents">Putra Pertama dari Bpk. Ismail & Ibu Etna Ratnawati (Almh)</p>
@@ -254,7 +255,7 @@
             <h2>Save The Date</h2>
             <p>Insya Allah acara akan diselenggarakan pada:</p>
             
-            <div class="event-box">
+            <div class="event-box" data-aos="zoom-in">
                 <h3>Kamis, 04 Desember 2025</h3>
                 <hr style="width: 50px; margin: 10px auto; border: 1px solid var(--gold);">
                 <p><strong>Akad Nikah:</strong> 09.00 WIB</p>
@@ -346,15 +347,24 @@
     </script>
 
         <div id="music-container" style="position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
-        <button onclick="toggleMusic()" style="background: #D4AF37; border: 2px solid white; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
-            <span id="music-icon" style="font-size: 24px;">🔇</span>
-        </button>
-    </div>
+            <button onclick="toggleMusic()" style="background: #D4AF37; border: 2px solid white; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                <span id="music-icon" style="font-size: 24px;">🔇</span>
+            </button>
+        </div>
 
     <audio id="wedding-music" loop>
         <source src="https://www.dropbox.com/scl/fi/wkt2s3qk6yq7odphedhr4/audio_2.mp3?rlkey=bun9yfn8wudufy14ctsdz2k3e&st=nv9wmks3&raw=1" type="audio/mpeg">
     </audio>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Mengaktifkan Animasi
+        AOS.init({
+            duration: 1200, // Durasi animasi (1200ms = 1.2 detik, biar pelan elegan)
+            once: true,     // Animasi cuma muncul sekali (biar ga pusing pas scroll naik turun)
+        });
+    </script>
+    
     <script>
         // --- LOGIKA MUSIK & SCROLL (VERSI FINAL & STABIL) ---
         const music = document.getElementById('wedding-music');
