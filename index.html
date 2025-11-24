@@ -120,6 +120,29 @@
             transform: translateY(20px);
             transition: opacity 1s ease-out, transform 1s ease-out;
         }
+
+        /* --- BACKGROUND UNIK UNTUK TIAP SECTION --- */
+        #section-doa {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('LINK_FOTO_PREWED_1.jpg'); /* GANTI LINK INI */
+            background-size: cover;
+            background-attachment: fixed; /* Efek Parallax */
+            color: white; /* Ubah teks jadi putih */
+        }
+
+        #section-mempelai {
+            background: url('LINK_FOTO_PREWED_2.jpg'); /* GANTI LINK INI */
+            background-size: cover;
+            background-position: center;
+        }
+
+        #section-acara {
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('LINK_FOTO_PREWED_3.jpg'); /* GANTI LINK INI */
+            background-size: cover;
+            background-position: bottom;
+            color: var(--dark); /* Teks tetap gelap */
+        }
+        /* --- AKHIR BACKGROUND UNIK --- */
+        
         .visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
@@ -131,14 +154,14 @@
         <p>04 . 12 . 2025</p>
     </header>
 
-    <section class="container fade-in">
+    <section class="container fade-in" id="section-doa">
         <img src="https://img.icons8.com/ios/50/D4AF37/bismillah.png" alt="Bismillah" style="width: 150px;">
         <p style="margin-top: 20px; font-style: italic;">
             "Ya Allah, dengan segala kesucian hati, kami bersujud memohon Ridho-Mu, untuk menuju sunnah Rasul-Mu, membentuk keluarga yang Sakinah, Mawaddah, Warahmah."
         </p>
     </section>
 
-    <section class="container couple-section fade-in">
+    <section class="container couple-section fade-in" id="section-mempelai">
         <div class="couple-card">
             <img src="https://source.unsplash.com/random/200x200/?woman,hijab" alt="Asmawati">
             <h2 class="couple-name">Asmawati Saleha</h2>
@@ -154,7 +177,7 @@
         </div>
     </section>
 
-    <section class="event-section fade-in">
+    <section class="event-section fade-in" id="section-acara">
         <div class="container">
             <h2>Save The Date</h2>
             <p>Insya Allah acara akan diselenggarakan pada:</p>
@@ -178,7 +201,7 @@
         </div>
     </section>
 
-    <section class="container fade-in">
+    <section class="container fade-in" id="section-rsvp">
         <h2>Konfirmasi Kehadiran</h2>
         <p>Kehadiran Anda adalah doa restu bagi kami.</p>
         <a href="https://wa.me/6281234567890?text=Saya%20akan%20hadir%20di%20pernikahan%20Asmawati%20dan%20Cahyadi" class="btn" style="background-color: #25D366;">Kirim RSVP via WhatsApp</a>
