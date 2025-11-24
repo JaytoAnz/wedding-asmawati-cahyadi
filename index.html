@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Asmawati & Cahyadi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS: Bagian Desain Tampilan --- */
+        :root {
+            --gold: #D4AF37;
+            --dark: #333;
+            --cream: #f9f9f9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        h1, h2, .couple-name {
+            font-family: 'Great Vibes', cursive;
+            color: var(--gold);
+        }
+
+        /* Hero Section / Cover */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/800x1200/?wedding,couple');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; letter-spacing: 2px; }
+
+        /* Container Umum */
+        .container {
+            padding: 50px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Bagian Mempelai */
+        .couple-section img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--gold);
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+        
+        .couple-card { margin-bottom: 40px; }
+        .parents { font-size: 0.9rem; color: #666; }
+
+        /* Bagian Acara */
+        .event-section { background-color: white; border-top: 5px solid var(--gold); border-bottom: 5px solid var(--gold); }
+        .event-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .time-box {
+            background: var(--gold);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 60px;
+        }
+        .time-box span { font-size: 1.5rem; font-weight: bold; display: block; }
+
+        /* Tombol */
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn:hover { background-color: #b89628; }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Animasi Fade In */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <p>THE WEDDING OF</p>
+        <h1>Asmawati & Cahyadi</h1>
+        <p>04 . 12 . 2025</p>
+    </header>
+
+    <section class="container fade-in">
+        <img src="https://img.icons8.com/ios/50/D4AF37/bismillah.png" alt="Bismillah" style="width: 150px;">
+        <p style="margin-top: 20px; font-style: italic;">
+            "Ya Allah, dengan segala kesucian hati, kami bersujud memohon Ridho-Mu, untuk menuju sunnah Rasul-Mu, membentuk keluarga yang Sakinah, Mawaddah, Warahmah."
+        </p>
+    </section>
+
+    <section class="container couple-section fade-in">
+        <div class="couple-card">
+            <img src="https://source.unsplash.com/random/200x200/?woman,hijab" alt="Asmawati">
+            <h2 class="couple-name">Asmawati Saleha</h2>
+            <p class="parents">Putri Bungsu dari Bpk. Muhamad Soleh (Alm) & Ibu Jariah</p>
+        </div>
+
+        <h2 style="font-size: 2rem;">&</h2>
+
+        <div class="couple-card">
+            <img src="https://source.unsplash.com/random/200x200/?man,suit" alt="Cahyadi">
+            <h2 class="couple-name">Cahyadi Muhamad Noor</h2>
+            <p class="parents">Putra Pertama dari Bpk. Ismail & Ibu Etna Ratnawati (Almh)</p>
+        </div>
+    </section>
+
+    <section class="event-section fade-in">
+        <div class="container">
+            <h2>Save The Date</h2>
+            <p>Insya Allah acara akan diselenggarakan pada:</p>
+            
+            <div class="event-box">
+                <h3>Kamis, 04 Desember 2025</h3>
+                <hr style="width: 50px; margin: 10px auto; border: 1px solid var(--gold);">
+                <p><strong>Akad Nikah:</strong> 09.00 WIB</p>
+                <p><strong>Resepsi:</strong> 09.00 WIB - Selesai</p>
+                <br>
+                <p><strong>Lokasi:</strong><br>Kp. Pakuncen RT.02 RW.07, Ds. Sukaharja,<br>Kec. Telukjambe Timur, Karawang</p>
+                
+                <a href="https://www.google.com/maps/search/?api=1&query=Kp.+Pakuncen+Ds.+Sukaharja+Karawang" target="_blank" class="btn">Lihat Lokasi di Maps</a>
+            </div>
+
+            <div class="countdown" id="countdown">
+                <div class="time-box"><span id="days">00</span>Hari</div>
+                <div class="time-box"><span id="hours">00</span>Jam</div>
+                <div class="time-box"><span id="minutes">00</span>Menit</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container fade-in">
+        <h2>Konfirmasi Kehadiran</h2>
+        <p>Kehadiran Anda adalah doa restu bagi kami.</p>
+        <a href="https://wa.me/6281234567890?text=Saya%20akan%20hadir%20di%20pernikahan%20Asmawati%20dan%20Cahyadi" class="btn" style="background-color: #25D366;">Kirim RSVP via WhatsApp</a>
+    </section>
+
+    <footer>
+        <p>Kami yang berbahagia,<br>Kel. Bpk. Muhamad Soleh (Alm) & Kel. Bpk. Ismail</p>
+        <br>
+        <p>&copy; 2025 Asmawati & Cahyadi Wedding</p>
+    </footer>
+
+    <script>
+        // 1. Logika Countdown Timer
+        const weddingDate = new Date("Dec 4, 2025 09:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "<h3>Alhamdulillah Sah!</h3>";
+            }
+        }, 1000);
+
+        // 2. Animasi saat di-scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
