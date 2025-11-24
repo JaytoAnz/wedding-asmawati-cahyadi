@@ -240,10 +240,12 @@
             if (isPlaying) {
                 music.pause();
                 icon.innerText = "🔇"; // Ikon mati
+                stopScroll(); // Tambahan: Scroll berhenti saat musik dipause
             } else {
                 music.play();
                 icon.innerText = "🎵"; // Ikon nyala
-                startAutoScroll(); // Mulai scroll saat musik dinyalakan
+                userInterrupted = false; // PENTING: RESET FLAG INTERUPSI
+                startAutoScroll(); // Mulai scroll
             }
             isPlaying = !isPlaying;
         }
