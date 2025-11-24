@@ -347,52 +347,59 @@
     </audio>
 
     <script>
-        // --- LOGIKA MUSIK ---
+        // --- LOGIKA MUSIK & SCROLL (VERSI FINAL & STABIL) ---
         const music = document.getElementById('wedding-music');
         const icon = document.getElementById('music-icon');
         let isPlaying = false;
-
+        let scrollInterval;
+        let userInterrupted = false;
+    
+        // 1. Fungsi Tombol Musik (Hanya urus musik, tidak urus scroll)
         function toggleMusic() {
             if (isPlaying) {
                 music.pause();
-                icon.innerText = "🔇"; // Ikon mati
+                icon.innerText = "🔇";
             } else {
                 music.play();
-                icon.innerText = "🎵"; // Ikon nyala
+                icon.innerText = "🎵";
             }
             isPlaying = !isPlaying;
         }
-
-        // --- LOGIKA AUTO SCROLL PELAN ---
-        let scrollInterval;
-        let userInterrupted = false;
-
+    
+        // 2. Fungsi Mulai Auto Scroll
         function startAutoScroll() {
-            // Cek jika user sudah menyentuh layar, jangan scroll lagi
-            if (userInterrupted) return;
-
-            // Kecepatan Scroll (Semakin besar angka 50, semakin pelan)
+            if (userInterrupted) return; // Kalau tamu sudah scroll manual, jangan jalan lagi
+    
             scrollInterval = setInterval(() => {
-                window.scrollBy(0, 1); // Turun 1 pixel
+                window.scrollBy(0, 1); // Kecepatan scroll (semakin besar angka 1, semakin cepat)
                 
-                // Stop jika sudah sampai paling bawah
+                // Stop jika sudah mentok bawah
                 if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-                    stopScroll();
+                    clearInterval(scrollInterval);
                 }
-            }, 50); 
+            }, 50); // Semakin besar angka 50, semakin pelan jalannya
         }
-
-        function stopScroll() {
+    
+        // 3. Fungsi Stop Scroll (DENGAN PENGECUALIAN TOMBOL MUSIK)
+        function stopScroll(e) {
+            // RAHASIA AGAR TIDAK BENTROK:
+            // Cek apakah yang disentuh/diklik adalah Tombol Musik?
+            if (e && e.target && e.target.closest('#music-container')) {
+                return; // Jika YA (tombol musik), ABAIKAN perintah stop ini. Biarkan scroll jalan.
+            }
+    
+            // Jika BUKAN tombol musik (misal sentuh layar tengah), baru matikan scroll
             clearInterval(scrollInterval);
-            userInterrupted = true; // Tandai bahwa user sudah interaksi
+            userInterrupted = true;
         }
-
-        // Matikan auto-scroll jika user menyentuh layar (biar bisa klik RSVP/Peta)
+    
+        // 4. Pasang Sensor (Event Listeners)
+        // Saat layar disentuh atau di-scroll mouse -> Panggil fungsi stopScroll
         window.addEventListener('touchstart', stopScroll);
         window.addEventListener('wheel', stopScroll);
-        // window.addEventListener('click', stopScroll);
-
-        // Panggil scroll segera setelah kode selesai dimuat
+        window.addEventListener('click', stopScroll);
+    
+        // 5. Jalankan Auto Scroll Segera Saat Web Dibuka
         startAutoScroll();
 
         // --- FITUR SALIN NO REKENING ---
