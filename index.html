@@ -152,6 +152,39 @@
         /* --- AKHIR BACKGROUND UNIK --- */
         
         .visible { opacity: 1; transform: translateY(0); }
+
+        /* --- MEDIA QUERIES: Pengaturan Khusus HP/Layar Kecil --- */
+        @media (max-width: 600px) {
+            /* Mengatur ulang ukuran font di Cover agar pas di layar HP */
+            .hero h1 {
+                font-size: 2.5rem; /* Ukuran h1 di HP dikecilkan */
+                margin-bottom: 5px;
+            }
+            .hero p {
+                font-size: 1rem; /* Ukuran paragraf di cover dikecilkan */
+            }
+            
+            /* Mengurangi padding (jarak) antar section */
+            .container {
+                padding: 30px 15px;
+            }
+
+            /* Mengurangi ukuran kotak waktu Countdown */
+            .time-box {
+                min-width: 50px;
+                padding: 8px;
+            }
+            .time-box span {
+                font-size: 1.2rem;
+            }
+
+            /* Mengurangi ukuran tombol speaker di HP */
+            #music-container button {
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+        /* --- AKHIR MEDIA QUERIES --- */
     </style>
 </head>
 <body>
