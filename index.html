@@ -267,6 +267,36 @@
         <a href="https://wa.me/6281234567890?text=Saya%20akan%20hadir%20di%20pernikahan%20Asmawati%20dan%20Cahyadi" class="btn" style="background-color: #25D366;">Kirim RSVP via WhatsApp</a>
     </section>
 
+    <section class="container fade-in" id="section-gift" style="background-color: #fff; padding-bottom: 50px;">
+        <h2 style="margin-bottom: 20px;">Wedding Gift</h2>
+        <p style="margin-bottom: 30px; font-size: 0.9rem;">
+            Doa restu Anda merupakan karunia yang sangat berarti bagi kami. 
+            Namun jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.
+        </p>
+
+        <div class="bank-card" style="border: 1px solid #D4AF37; padding: 20px; border-radius: 10px; margin-bottom: 20px; max-width: 400px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #333; margin-bottom: 5px;">BANK BCA</h3>
+            <p style="font-size: 0.9rem; color: #666;">a.n Asmawati Saleha</p>
+            
+            <h2 id="rek1" style="font-family: 'Lato', sans-serif; letter-spacing: 2px; color: #D4AF37; margin: 15px 0;">1234567890</h2>
+            
+            <button onclick="salinRekening('rek1')" class="btn" style="margin-top: 0; padding: 8px 20px; font-size: 0.8rem;">
+                Salin No. Rekening
+            </button>
+        </div>
+
+        <div class="bank-card" style="border: 1px solid #D4AF37; padding: 20px; border-radius: 10px; margin-bottom: 20px; max-width: 400px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h3 style="color: #333; margin-bottom: 5px;">BANK BRI</h3>
+            <p style="font-size: 0.9rem; color: #666;">a.n Cahyadi M. Noor</p>
+            
+            <h2 id="rek2" style="font-family: 'Lato', sans-serif; letter-spacing: 2px; color: #D4AF37; margin: 15px 0;">0987654321</h2>
+            
+            <button onclick="salinRekening('rek2')" class="btn" style="margin-top: 0; padding: 8px 20px; font-size: 0.8rem;">
+                Salin No. Rekening
+            </button>
+        </div>
+    </section>
+
     <footer>
         <p>Kami yang berbahagia,<br>Kel. Bpk. Muhamad Soleh (Alm) & Kel. Bpk. Ismail</p>
         <br>
@@ -361,6 +391,27 @@
 
         // Panggil scroll segera setelah kode selesai dimuat
         startAutoScroll();
+
+        // --- FITUR SALIN NO REKENING ---
+        function salinRekening(elementId) {
+            // Ambil teks nomor rekening
+            var textToCopy = document.getElementById(elementId).innerText;
+            
+            // Buat elemen sementara untuk menyalin
+            var tempInput = document.createElement("input");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            
+            // Pilih dan salin teks
+            tempInput.select();
+            document.execCommand("copy");
+            
+            // Hapus elemen sementara
+            document.body.removeChild(tempInput);
+            
+            // Beri tahu user (Alert sederhana)
+            alert("Nomor Rekening Berhasil Disalin: " + textToCopy);
+        }
     </script>
 
 </body>
